@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProiectBD.Controllers.UserController">
+   <children>
+      <Text layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aplicatia de fotbal cea mai buna" textAlignment="CENTER" underline="true" wrappingWidth="200.72726576623847" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="Eras Demi ITC" size="23.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="222.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liga de fotbal fictiva" textAlignment="CENTER" wrappingWidth="579.339282989502" AnchorPane.topAnchor="25.0">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="36.0" />
+         </font>
+      </Text>
+      <TabPane fx:id="bigTabPane" layoutX="3.0" layoutY="84.0" prefHeight="633.0" prefWidth="1018.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="50.0" tabMaxWidth="200.0" tabMinHeight="50.0" tabMinWidth="50.0">
+        <tabs>
+          <Tab fx:id="tabMatches" closable="false" text="Matches">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="961.0">
+                     <children>
+                        <ListView fx:id="matchesList" layoutX="159.0" layoutY="98.0" prefHeight="525.0" prefWidth="383.0" AnchorPane.bottomAnchor="10.0" />
+                        <Text layoutX="394.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Matches" textAlignment="CENTER" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font name="Berlin Sans FB" size="32.0" />
+                           </font>
+                        </Text>
+                        <DatePicker fx:id="startCalendar" layoutX="265.0" layoutY="59.0" AnchorPane.topAnchor="60.0" />
+                        <DatePicker fx:id="endCalendar" layoutX="525.0" layoutY="58.0" AnchorPane.topAnchor="60.0" />
+                        <Text layoutX="462.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Until:" textAlignment="CENTER" AnchorPane.topAnchor="57.0">
+                           <font>
+                              <Font name="Berlin Sans FB" size="26.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="190.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" textAlignment="CENTER" AnchorPane.topAnchor="57.0">
+                           <font>
+                              <Font name="Berlin Sans FB" size="26.0" />
+                           </font>
+                        </Text>
+                        <ListView fx:id="dateMatchesList" layoutX="542.0" layoutY="98.0" prefHeight="525.0" prefWidth="202.0" AnchorPane.bottomAnchor="10.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabPlayers" closable="false" text="Players">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tablePlayers" layoutX="8.0" layoutY="54.0" prefHeight="575.0" prefWidth="943.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                          <columns>
+                            <TableColumn prefWidth="207.70907592773438" text="Name" />
+                            <TableColumn fx:id="columnTeam1" prefWidth="167.5636444091797" text="Team" />
+                              <TableColumn prefWidth="83.78182983398438" text="Position" />
+                              <TableColumn prefWidth="150.98184204101562" text="Nationality" />
+                              <TableColumn prefWidth="68.07275390625" text="Age" />
+                              <TableColumn prefWidth="75.054443359375" text="Goals" />
+                              <TableColumn prefWidth="68.0726318359375" text="Assists" />
+                              <TableColumn minWidth="6.98193359375" prefWidth="61.0909423828125" text="Yellows" />
+                              <TableColumn minWidth="6.98193359375" prefWidth="62.8363037109375" text="Reds" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#viewTeam" text="View Team" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                        <TextField fx:id="searchPlayer" layoutX="261.0" layoutY="10.0" prefHeight="35.0" prefWidth="500.0" promptText="Search a player" AnchorPane.topAnchor="10.0" />
+                        <ImageView fx:id="imgView2" fitHeight="35.0" fitWidth="35.0" layoutX="206.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tabLeagues" closable="false" text="League">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="leagueTable" layoutX="8.0" layoutY="54.0" prefHeight="575.0" prefWidth="943.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                           <columns>
+                              <TableColumn prefWidth="56.727264404296875" text="No." />
+                              <TableColumn fx:id="columnTeam2" prefWidth="251.34544372558594" text="Team" />
+                              <TableColumn prefWidth="177.16372680664062" text="Country" />
+                              <TableColumn prefWidth="78.54544067382812" text="Points" />
+                              <TableColumn prefWidth="83.78173828125" text="Wins" />
+                              <TableColumn prefWidth="71.5635986328125" text="Draws" />
+                              <TableColumn prefWidth="77.6727294921875" text="Defeats" />
+                              <TableColumn prefWidth="68.0726318359375" text="Games" />
+                              <TableColumn prefWidth="81.16357421875" text="Goal Average" />
+                           </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#viewTeam" text="View Team" />
+                                    <MenuItem mnemonicParsing="false" onAction="#viewTeamStadion" text="View Stadion" />
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                        <TextField fx:id="searchTeam" layoutX="261.0" layoutY="10.0" prefHeight="35.0" prefWidth="500.0" promptText="Search a team" AnchorPane.topAnchor="10.0" />
+                        <ImageView fx:id="imgView1" fitHeight="35.0" fitWidth="35.0" layoutX="206.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabTeam" closable="false" text="Team">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="textTeam" layoutX="198.0" layoutY="46.255859375" strokeType="OUTSIDE" strokeWidth="0.0" text="ECHIPA CUTARE" textAlignment="CENTER" wrappingWidth="536.7272991085848" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font name="Berlin Sans FB" size="36.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="109.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Players" textAlignment="CENTER" AnchorPane.bottomAnchor="485.0">
+                           <font>
+                              <Font name="Berlin Sans FB" size="36.0" />
+                           </font>
+                        </Text>
+                        <Line endX="936.8727416992188" endY="36.21818542480469" layoutX="24.0" layoutY="64.0" startX="-24.80908203125" startY="36.21818542480469" />
+                        <TableView fx:id="jucatoriTable" layoutX="13.0" layoutY="147.0" prefHeight="473.0" prefWidth="294.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                          <columns>
+                            <TableColumn prefWidth="234.76358032226562" text="Name" />
+                            <TableColumn prefWidth="58.47271291181113" text="Pos" />
+                          </columns>
+                        </TableView>
+                        <Text fx:id="textSelectedTeam" layoutX="388.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics" AnchorPane.bottomAnchor="485.57709377824773">
+                           <font>
+                              <Font name="Berlin Sans FB" size="36.0" />
+                           </font>
+                        </Text>
+                        <ListView fx:id="statsListTeam" layoutX="310.0" layoutY="146.0" prefHeight="473.0" prefWidth="274.0" AnchorPane.bottomAnchor="10.0" />
+                        <ListView fx:id="matchesListTeam" layoutX="591.0" layoutY="146.0" prefHeight="473.0" prefWidth="361.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                        <Text fx:id="textSelectedTeam1" layoutX="714.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Matches" AnchorPane.bottomAnchor="485.57709377824773">
+                           <font>
+                              <Font name="Berlin Sans FB" size="36.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="stadionTeamText" layoutX="269.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stadion" textAlignment="CENTER" wrappingWidth="394.5456237792969" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="297.3270701712628" AnchorPane.topAnchor="53.1201171875">
+                           <font>
+                              <Font name="Berlin Sans FB" size="30.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabMatch" closable="false" text="Match">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="597.0" prefWidth="961.0">
+                     <children>
+                        <ListView fx:id="timelineView" layoutX="317.0" layoutY="171.0" prefHeight="420.0" prefWidth="326.0" AnchorPane.bottomAnchor="10.0" />
+                        <ListView fx:id="team1View" layoutX="14.0" layoutY="170.0" prefHeight="420.0" prefWidth="291.0" AnchorPane.bottomAnchor="10.0" />
+                        <ListView fx:id="team2View" layoutX="655.0" layoutY="172.0" prefHeight="420.0" prefWidth="291.0" AnchorPane.bottomAnchor="10.0" />
+                        <Text fx:id="matchText" layoutX="73.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ECHIPA_1  2  -  3  ECHIPA_2" textAlignment="CENTER" wrappingWidth="814.0179748535156" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="15.0">
+                           <font>
+                              <Font name="Berlin Sans FB" size="40.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="team1Text" layoutX="15.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ECHIPA_1" textAlignment="CENTER" wrappingWidth="289.2621078491211" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="155.0">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="433.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Timeline" textAlignment="CENTER" AnchorPane.leftAnchor="433.0" AnchorPane.rightAnchor="433.0" AnchorPane.topAnchor="155.0">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="team2Text" layoutX="652.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ECHIPA_2" textAlignment="CENTER" wrappingWidth="296.243896484375" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="155.0">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="stadionMatchText" layoutX="212.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stadion" textAlignment="CENTER" wrappingWidth="536.3931884765625" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="212.0" AnchorPane.topAnchor="67.0">
+                           <font>
+                              <Font name="Bell MT" size="36.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="dateMatchText" layoutX="212.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Played on: 20.20.2020" textAlignment="CENTER" wrappingWidth="536.3931884765625" AnchorPane.topAnchor="117.0">
+                           <font>
+                              <Font name="Book Antiqua" size="25.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Line endX="1021.0" endY="-32.763648986816406" layoutX="3.0" layoutY="114.0" startX="-2.999993085861206" startY="-32.763648986816406" />
+      <Button layoutX="872.0" layoutY="24.0" mnemonicParsing="false" onAction="#switchToAdmin" prefHeight="45.0" prefWidth="119.0" text="Switch to Admin" AnchorPane.bottomAnchor="651.0" AnchorPane.rightAnchor="32.436367782718776" AnchorPane.topAnchor="24.0" />
+      <AnchorPane fx:id="stadionUp" disable="true" prefHeight="641.0" prefWidth="422.0" style="-fx-background-color: #fbfbfb;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text fx:id="stadionName" layoutX="46.0" layoutY="73.44580078125" strokeType="OUTSIDE" strokeWidth="0.0" text="NUME STADION" textAlignment="CENTER" wrappingWidth="432.412567138672" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="44.0">
+               <font>
+                  <Font name="Bell MT Bold" size="35.0" />
+               </font>
+            </Text>
+            <Text fx:id="teamText" layoutX="118.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ECHIPA" textAlignment="CENTER" wrappingWidth="287.9290313720703" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="102.87095098322152" AnchorPane.topAnchor="165.462890625">
+               <font>
+                  <Font name="Arial Italic" size="26.0" />
+               </font>
+            </Text>
+            <Text fx:id="locationText2" layoutX="82.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOCATION:" textAlignment="CENTER" underline="true" wrappingWidth="372.8674011230469" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="64.40530814178783" AnchorPane.topAnchor="251.462890625">
+               <font>
+                  <Font name="Arial Italic" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="82.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRICE:" textAlignment="CENTER" underline="true" wrappingWidth="372.867401123047" AnchorPane.bottomAnchor="103.94475758450164" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="64.40530814178771">
+               <font>
+                  <Font name="Arial Italic" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="57.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacity:" textAlignment="CENTER" underline="true" wrappingWidth="408.8489685058594" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="53.42374075897533" AnchorPane.topAnchor="375.462890625">
+               <font>
+                  <Font name="Arial Italic" size="26.0" />
+               </font>
+            </Text>
+            <Text fx:id="capacityText" layoutX="102.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="75240" textAlignment="CENTER" wrappingWidth="319.2815704345703" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="97.99113883026439" AnchorPane.topAnchor="417.462890625">
+               <font>
+                  <Font name="Arial Italic" size="26.0" />
+               </font>
+            </Text>
+            <Text fx:id="priceText" layoutX="118.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="250€" textAlignment="CENTER" wrappingWidth="287.9290313720703" AnchorPane.bottomAnchor="64.94475758450164" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="113.34367789276439">
+               <font>
+                  <Font name="Arial Italic" size="26.0" />
+               </font>
+            </Text>
+            <Button layoutX="482.0" layoutY="8.0" mnemonicParsing="false" onAction="#closeStadion" prefHeight="36.0" prefWidth="37.0" text="X" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Text fx:id="teamText1" layoutX="120.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEAM:" textAlignment="CENTER" underline="true" wrappingWidth="296.7564392089844" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="92.04354314630746">
+               <font>
+                  <Font name="Arial Italic" size="26.0" />
+               </font>
+            </Text>
+            <Text fx:id="locationText" layoutX="87.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOCATIE" textAlignment="CENTER" wrappingWidth="349.5035095214844" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="82.76919974335033" AnchorPane.topAnchor="290.462890625">
+               <font>
+                  <Font name="Arial Italic" size="26.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

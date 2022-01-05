@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>all</groupId>
-    <artifactId>ProiectBD</artifactId>
+    <artifactId>ProiectBDv2</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>ProiectBD</name>
+    <name>ProiectBDv2</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -53,6 +53,11 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-javafx</artifactId>
+            <version>12.2.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.version}</version>
@@ -86,7 +91,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>Interface.HelloApplication</mainClass>
+                            <mainClass>all.proiectbdv2/ProiectBD.HelloApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>
